@@ -57,7 +57,7 @@
 
     <header class="site-header">
       <nav class="nav-pill" aria-label="Principal">
-        <a class="nav-logo" href="#inicio">terra&nbsp;viva</a>
+        <a class="nav-logo" href="#inicio" aria-label="Terra Viva, início">terra&nbsp;viva</a>
         <a class="wa-btn" href="#" data-wa-generic>
           <span data-wa-icon class="wa-glyph cta-nudge"></span>
           <span>Encomendar</span>
@@ -118,15 +118,21 @@
         </div>
       </section>
 
-      <section id="catalogo" class="catalogo" aria-labelledby="catalogo-titulo" data-carousel>
-        <div class="section-head">
+      <section
+        id="catalogo"
+        class="catalogo"
+        aria-labelledby="catalogo-titulo"
+        data-carousel
+      >
+        <div class="section-head" style="text-align:left">
           <h2 id="catalogo-titulo">As nossas farinhas</h2>
-          <p>Escolhe a tua e toca em Encomendar.</p>
+          <p>Escolhe a tua e toca em Encomendar. Usa as setas ou o teclado para navegar.</p>
         </div>
         <div
           class="carousel-track"
           data-carousel-track
           tabindex="0"
+          role="list"
           aria-label="Carrossel de farinhas Terra Viva"
         ></div>
         <div class="carousel-controls">
@@ -137,6 +143,7 @@
             <i class="ph ph-caret-right" aria-hidden="true"></i>
           </button>
         </div>
+        <p class="visually-hidden" data-live aria-live="polite"></p>
       </section>
 
       <section id="como-encomendar" class="passos" aria-labelledby="passos-titulo" data-reveal>

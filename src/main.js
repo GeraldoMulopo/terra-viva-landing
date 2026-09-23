@@ -48,6 +48,10 @@ function renderCatalog() {
     card.style.setProperty('--soft', soft)
     card.style.setProperty('--pale', pale)
     card.innerHTML = mediaMarkup(product)
+    card.querySelector('.product-order')?.addEventListener('focus', () => {
+      const note = document.querySelector('[data-live]')
+      if (note) note.textContent = `${product.name}. Toca em Encomendar para abrir o WhatsApp.`
+    })
     fragment.append(card)
   }
   track.append(fragment)
