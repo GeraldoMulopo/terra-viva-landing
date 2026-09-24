@@ -352,6 +352,11 @@
   scroll-snap-align: center;
   flex: 0 0 min(92%, 340px);
 }
+@media (max-width: 479px) {
+  .carousel-card {
+    flex-basis: min(82%, 300px);
+  }
+}
 .carousel-controls {
   display: flex;
   justify-content: center;
