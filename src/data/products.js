@@ -11,6 +11,7 @@ export const products = [
     tagline: 'para uma rotina mais leve e nutritiva',
     image: '/images/Farinha_Banana_Verde.png',
     palette: 'olive',
+    use: 'Usa em papas, panquecas e nas receitas do dia a dia.',
   },
   {
     id: 'batata-doce',
@@ -19,6 +20,7 @@ export const products = [
     tagline: 'nutrição que te acompanha todos os dias',
     image: '/images/Farinha_Batata_Doce.png',
     palette: 'cobre',
+    use: 'Usa em papas, bolos e sobremesas.',
   },
   {
     id: 'beterraba',
@@ -27,6 +29,7 @@ export const products = [
     tagline: 'o teu dia pede escolhas que nutrem',
     image: '/images/Farinha_Beterraba.png',
     palette: 'bordeaux',
+    use: 'Adiciona a bolos e papas.',
   },
   {
     id: 'inhame',
@@ -35,6 +38,7 @@ export const products = [
     tagline: 'uma forma mais simples de nutrir o dia',
     image: '/images/Farinha_Inhame.png',
     palette: 'taupe',
+    use: 'Usa em papas e pratos salgados.',
   },
   {
     id: 'mix',
@@ -43,6 +47,7 @@ export const products = [
     tagline: 'mistura. prepara. nutre',
     image: '/images/Mix_Raizes_Que_Nutrem.png',
     palette: 'terra',
+    use: 'Usa em papas e nas tuas receitas.',
   },
 ]
 
@@ -52,11 +57,6 @@ const palettes = {
   bordeaux: ['#6B2D43', '#9E5E72', '#D2A3B0'],
   taupe: ['#7A6A5E', '#9E8F84', '#D5CFC9'],
   terra: ['#5C4E43', '#8A7869', '#C4B5A5'],
-}
-
-export function orderLink(product) {
-  const text = `Olá, quero encomendar 1x ${product.name} (${product.weight}).`
-  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`
 }
 
 export function paletteColors(palette) {

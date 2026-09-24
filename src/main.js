@@ -6,7 +6,7 @@ import '@fontsource/inter/latin-400.css'
 import '@phosphor-icons/web/regular'
 import './data/products.js'
 
-import { products, WA_GENERIC, orderLink, paletteColors } from './data/products.js'
+import { products, WA_GENERIC, paletteColors } from './data/products.js'
 import { brandIcon } from './icons.js'
 import { initUi } from './ui.js'
 
@@ -23,15 +23,6 @@ const mediaMarkup = (product) => `
     <h3>${product.name}</h3>
     <p class="product-tagline">${product.tagline}</p>
     <span class="product-chip">${product.weight}</span>
-    <a
-      class="wa-btn product-order"
-      href="${orderLink(product)}"
-      target="_blank"
-      rel="noopener"
-    >
-      <span class="wa-glyph">${brandIcon('whatsapp', '')}</span>
-      <span>Encomendar</span>
-    </a>
   </div>
 `
 
@@ -43,14 +34,17 @@ function renderCatalog() {
     const card = document.createElement('article')
     card.className = 'product-card carousel-card'
     card.setAttribute('role', 'listitem')
+    card.dataset.id = product.id
+    card.tabIndex = 0
+    card.setAttribute('aria-haspopup', 'dialog')
     const [accent, soft, pale] = paletteColors(product.palette)
     card.style.setProperty('--accent', accent)
     card.style.setProperty('--soft', soft)
     card.style.setProperty('--pale', pale)
     card.innerHTML = mediaMarkup(product)
-    card.querySelector('.product-order')?.addEventListener('focus', () => {
+    card.addEventListener('focus', () => {
       const note = document.querySelector('[data-live]')
-      if (note) note.textContent = `${product.name}. Toca em Encomendar para abrir o WhatsApp.`
+      if (note) note.textContent = `${product.name}. Enter para ver os detalhes.`
     })
     fragment.append(card)
   }

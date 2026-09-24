@@ -145,6 +145,12 @@
             <i class="ph ph-caret-right" aria-hidden="true"></i>
           </button>
         </div>
+        <div class="carousel-order">
+          <button type="button" class="wa-btn wa-btn--lg" data-open-order>
+            <span data-wa-icon class="wa-glyph"></span>
+            <span>Encomendar</span>
+          </button>
+        </div>
         <p class="visually-hidden" data-live aria-live="polite"></p>
       </section>
 
@@ -229,6 +235,32 @@
       </ul>
       <p class="footer-legal">© 2026 Terra Viva · Todos os direitos reservados</p>
     </footer>
+
+    <dialog class="modal" data-modal="order" aria-labelledby="order-titulo">
+      <div class="modal-head">
+        <h2 id="order-titulo">Escolhe as tuas farinhas</h2>
+        <button type="button" class="modal-close" data-close aria-label="Fechar">
+          <i class="ph ph-x" aria-hidden="true"></i>
+        </button>
+      </div>
+      <form data-order-form novalidate>
+        <div class="order-list" data-order-list></div>
+        <p class="order-status visually-hidden" data-order-status aria-live="polite"></p>
+        <div class="modal-foot">
+          <button type="submit" class="wa-btn wa-btn--lg" data-order-submit disabled>Encomendar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="modal" data-modal="detail" aria-labelledby="detail-titulo">
+      <div class="modal-head">
+        <h2 id="detail-titulo" data-detail-name></h2>
+        <button type="button" class="modal-close" data-close aria-label="Fechar">
+          <i class="ph ph-x" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="modal-body" data-detail-body></div>
+    </dialog>
 
     <script type="module" src="/src/main.js"></script>
   </body>
