@@ -149,12 +149,19 @@
   backdrop-filter: blur(8px);
 }
 .nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 1.05rem;
   letter-spacing: 0.02em;
   color: var(--color-ink);
   text-decoration: none;
+}
+.nav-logo-img {
+  width: auto;
+  height: 1.5em;
 }
 .nav-logo:hover {
   color: var(--color-olive);

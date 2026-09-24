@@ -59,10 +59,36 @@ function initCarousel() {
   if (!root || !track || !prev || !next) return
   const step = () =>
     track.querySelector('.carousel-card')?.getBoundingClientRect().width ?? 320
-  prev.addEventListener('click', () =>
-    track.scrollBy({ left: -(step() + 20), behavior: reduced ? 'auto' : 'smooth' })
-  )
-  next.addEventListener('click', () =>
-    track.scrollBy({ left: step() + 20, behavior: reduced ? 'auto' : 'smooth' })
-  )
+  const behavior = () => (reduced ? 'auto' : 'smooth')
+  const advance = (dir) => {
+    const scrollLeft = track.scrollLeft
+    const max = track.scrollWidth - track.clientWidth
+    if (max <= 0) return
+    if (dir > 0) {
+      if (scrollLeft >= max - step() / 2) track.scrollTo({ left: 0, behavior: behavior() })
+      else track.scrollBy({ left: step() + 20, behavior: behavior() })
+    } else if (scrollLeft <= step() / 2) {
+      track.scrollTo({ left: max, behavior: behavior() })
+    } else {
+      track.scrollBy({ left: -(step() + 20), behavior: behavior() })
+    }
+  }
+  prev.addEventListener('click', () => advance(-1))
+  next.addEventListener('click', () => advance(1))
+  if (reduced) return
+  let timer = 0
+  const play = () => {
+    if (!timer) timer = window.setInterval(() => advance(1), 6000)
+  }
+  const pause = () => {
+    window.clearInterval(timer)
+    timer = 0
+  }
+  root.addEventListener('mouseenter', pause)
+  root.addEventListener('mouseleave', play)
+  root.addEventListener('focusin', pause)
+  root.addEventListener('focusout', (e) => {
+    if (!e.relatedTarget || !root.contains(e.relatedTarget)) play()
+  })
+  play()
 }
